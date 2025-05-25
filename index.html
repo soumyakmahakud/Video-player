@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Progress Tracker</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 Smart Video Progress Tracker</h1>
+            <p>Tracks only unique viewing time - no double counting!</p>
+        </div>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video id="lectureVideo" controls>
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h2 class="progress-title">Learning Progress</h2>
+                    <div class="progress-percentage" id="progressPercentage">0%</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="uniqueTime">0:00</div>
+                    <div class="stat-label">Unique Time Watched</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalTime">0:00</div>
+                    <div class="stat-label">Total Video Duration</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="sessionTime">0:00</div>
+                    <div class="stat-label">Current Session</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="intervalsCount">0</div>
+                    <div class="stat-label">Watched Segments</div>
+                </div>
+            </div>
+
+            <div class="intervals-section">
+                <h3 class="intervals-title">📊 Watched Intervals</h3>
+                <div class="intervals-list" id="intervalsList"></div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-primary" onclick="resumeFromLastPosition()">Resume Last Position</button>
+                <button class="btn btn-secondary" onclick="showDebugInfo()">Show Debug Info</button>
+                <button class="btn btn-danger" onclick="resetProgress()">Reset Progress</button>
+            </div>
+
+            <div class="debug-info" id="debugInfo" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
